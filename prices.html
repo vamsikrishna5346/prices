@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>FORMER</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color:rgb(180, 178, 178);
+            
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(90deg, #f73302, #f51f03);
+            padding: 10px 20px;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar .brand {
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+
+        .navbar .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .navbar .nav-links li {
+            position: relative;
+        }
+
+        .navbar .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 1em;
+            padding: 5px 10px;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .navbar .nav-links a:hover {
+            background: white;
+            color: #ff7e5f;
+            border-radius: 5px;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+        .heading h1{
+            color: #f15304;
+            font-size: 2.5rem;
+            text-align: center;
+            padding: 10px;
+
+        }
+        
+        .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+      gap: 30px;
+      width: 100%;
+      max-width: 1200px;
+      padding: 100px;
+    }
+
+    .card {
+      background: #ffffff;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      display: flex;
+      flex-direction: row;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card-image {
+      flex: 1;
+    }
+
+    .card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .card-details {
+      flex: 1;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .card-title {
+      font-size: 20px;
+      margin: 0 0 10px;
+      color: #333;
+    }
+
+    .card-description {
+      font-size: 24px;
+      margin: 0 0 20px;
+      color: #555;
+    }
+
+    .card-button {
+      align-self: flex-start;
+      padding: 10px 20px;
+      font-size: 14px;
+      color: #fff;
+      background-color: #007bff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .card-button:hover {
+      background-color: #0056b3;
+    }
+    footer{
+        background-color: #f14304;
+        padding: 10px;
+    }
+        @media (max-width: 768px) {
+            .navbar .nav-links {
+                display: none;
+                flex-direction: row;
+                position: absolute;
+                padding: 10px;
+                top: 60px;
+                left: 0;
+                background: linear-gradient(90deg, #ea7005, #f92702);
+                width: 100%;
+                text-align: center;
+            }
+
+            .navbar .nav-links.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+            
+            .heading h1{
+            color: #f64606;
+            font-size: 1.5rem;
+            text-align: center;
+            padding: 10px;
+           
+          }
+          .card {
+        flex-direction: row;
+          }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px;
+    }
+
+
+      
+
+      .card-title {
+        font-size: 18px;
+      }
+
+      .card-description {
+        font-size: 22px;
+      }
+
+      .card-button {
+        font-size: 12px;
+      }
+    }
+    </style>
+    </head>
+    <body>
+    
+        <nav class="navbar">
+            <div class="brand">MARKET PRICES</div>
+            <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="prices.html">Prices</a></li>
+                <li><a href="ports.html">Ports</a></li>
+                <li><a href="">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav><hr>
+        <div class="heading">
+            <h1 style="">TIME TO TIME UPDATES </h1>
+            <h1 style="">Today's Top Paddy(dhan)(common) rate in Andhra Pradesh</h1>
+        </div>
+        <hr>
+        <div class="card-container">
+            <div class="card">
+              <div class="card-image">
+                <img src="https://farm.ws/wp-content/uploads/2021/07/pexels-abhinav-raj-4057041.jpg" alt="Card Image 1">
+              </div>
+              <div class="card-details">
+                <h2 class="card-title">PADDY</h2>
+                <p class="card-description">TODAY PRICE : ****</p>
+                <a href="#" class="card-button">Learn More</a>
+              </div>
+            </div>
+        
+            <div class="card">
+              <div class="card-image">
+                <img src="https://apseeds.ap.gov.in/Assets/Images/paddy.jpg" alt="Card Image 2">
+              </div>
+              <div class="card-details">
+                <h2 class="card-title">PADDY</h2>
+                <p class="card-description">TODAY PRICE : ****</p>
+                <a href="#" class="card-button">Learn More</a>
+              </div>
+            </div>
+        
+            <div class="card">
+              <div class="card-image">
+                <img src="https://farm.ws/wp-content/uploads/2021/07/pexels-abhinav-raj-4057041.jpg" alt="Card Image 3">
+              </div>
+              <div class="card-details">
+                <h2 class="card-title">PADDY</h2>
+                <p class="card-description">TODAY PRICE : ****</p>
+                <a href="#" class="card-button">Learn More</a>
+              </div>
+            </div>
+        
+            <div class="card">
+              <div class="card-image">
+                <img src="https://farm.ws/wp-content/uploads/2021/07/pexels-abhinav-raj-4057041.jpg" alt="Card Image 4">
+              </div>
+              <div class="card-details">
+                <h2 class="card-title">PADDY</h2>
+                <p class="card-description">TODAY PRICE : ****</p>
+                <a href="#" class="card-button">Learn More</a>
+              </div>
+            </div>
+          </div>
+    <footer>
+         <h2>podili vamsi krishna</h2>
+        <p>vamsikrishna2666@gmail.com</p>
+    </footer>
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const navLinks = document.getElementById('nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+    </body>
+    </html>

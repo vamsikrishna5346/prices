@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>FORMER</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color:rgb(180, 178, 178);
+            
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(90deg, #f73302, #f51f03);
+            padding: 10px 20px;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar .brand {
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+
+        .navbar .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .navbar .nav-links li {
+            position: relative;
+        }
+
+        .navbar .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 1em;
+            padding: 5px 10px;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .navbar .nav-links a:hover {
+            background: white;
+            color: #ff7e5f;
+            border-radius: 5px;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+        .heading h1{
+            color: #f15304;
+            font-size: 2.5rem;
+            text-align: center;
+            padding: 10px;
+
+        }
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      flex-wrap: wrap;
+      padding: 80px;
+    }
+    .card {
+      width: auto;
+      height: 300px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      border: 2px solid rgb(253, 251, 251);
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: scale(1.05);
+    }
+    .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .popup {
+      
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      display: none;
+      z-index: 1000;
+    }
+    #popup-image-container {
+  margin-bottom: 20px;
+}
+
+#popup-image {
+  width: 100%;
+  height: 200px;
+  border-radius: 8px;
+}
+
+#popup-heading {
+  margin-bottom: 10px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+#popup-subheading {
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: normal;
+}
+
+#popup-description {
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+#popup-footer {
+  margin-bottom: 20px;
+  font-size: 25px;
+  color: rgb(247, 242, 242);
+  background-color: #e73d05;
+}
+    .popup h2 {
+      margin: 0;
+      font-size: 20px;
+    }
+    .popup button {
+      margin-top: 10px;
+      padding: 5px 10px;
+      background-color: #eb3204;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .popup button:hover {
+      background-color: #0056b3;
+    }
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: none;
+      z-index: 999;
+    }
+    footer{
+        background-color: #e73d05;
+        padding: 20px;
+    }
+   
+        @media (max-width: 768px) {
+            .navbar .nav-links {
+                display: none;
+                flex-direction: row;
+                position: absolute;
+                padding: 10px;
+                top: 60px;
+                left: 0;
+                background: linear-gradient(90deg, #ea7005, #f92702);
+                width: 100%;
+                text-align: center;
+            }
+
+            .navbar .nav-links.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+            
+            .heading h1{
+            color: #f64606;
+            font-size: 1.5rem;
+            text-align: center;
+            padding: 10px;
+           
+          }
+          .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 2fr));
+      gap: 10px;
+      flex-wrap: wrap;
+      padding: 28px;
+    }    
+    .card {
+      width: auto;
+      height: 170px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    #popup-image {
+  width: 100%;
+  height: 200px;
+  border-radius: 8px;
+}
+#popup-footer {
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: rgb(253, 251, 251);
+  background-color: #f52e06;
+}
+.popup {
+      
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      display: none;
+      z-index: 1000;
+    }
+
+}
+          
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="brand">MARKET PRICES</div>
+        <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="prices.html">Prices</a></li>
+            <li><a href="#">Ports</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav><hr>
+    <div class="heading">
+        <h1 style="">TIME TO TIME UPDATES </h1>
+        <h1 style="">To see real-time updates on paddy market prices in Andhra Pradesh</h1>
+    </div>
+    <hr>
+    <div class="card-container">
+        <div class="card" data-heading="BUDDI" data-subheading="Min price : 123" data-image="https://farm.ws/wp-content/uploads/2021/07/pexels-abhinav-raj-4057041.jpg" data-description="This is the paragraph message for card 2" data-footer="TODAY PRICE : 5487">
+          <img src="https://farm.ws/wp-content/uploads/2021/07/pexels-abhinav-raj-4057041.jpg" alt="Card 1">
+        </div>
+        <div class="card" data-heading="PADDY" data-subheading="Min Price : " data-image="https://s3.ap-southeast-1.amazonaws.com/images.deccanchronicle.com/dc-Cover-1hqmnp02e87gevn3s2hb9vash6-20210805235916.Medi.jpeg" data-description="This is the paragraph message for card 2" data-footer="TODAY PRICE : ">
+          <img src="https://s3.ap-southeast-1.amazonaws.com/images.deccanchronicle.com/dc-Cover-1hqmnp02e87gevn3s2hb9vash6-20210805235916.Medi.jpeg" alt="Card 2">
+        </div>
+        <div class="card" data-heading="PADDY" data-subheading="Min price : " data-image="https://apseeds.ap.gov.in/Assets/Images/paddy.jpg" data-description="This is the paragraph message for card 3" data-footer="TODAY PRICE : ">
+          <img src="https://apseeds.ap.gov.in/Assets/Images/paddy.jpg" alt="Card 3">
+        </div>
+        <div class="card" data-heading="PADDY" data-subheading="Min price : " data-image="https://m.media-amazon.com/images/I/810q7Q8xdpL._AC_UF1000,1000_QL80_.jpg" data-description="This is the paragraph message for card 1" data-footer="TODAY PRICE : ">
+            <img src="https://m.media-amazon.com/images/I/810q7Q8xdpL._AC_UF1000,1000_QL80_.jpg" alt="Card 1">
+          </div>
+          <div class="card" data-heading="PADDY" data-subheading="Min Price" data-image="https://www.asiafarming.com/wp-content/uploads/2022/11/High-Yield-Hybrid-PaddyRice-Varieties-in-India-1-1024x768.jpg" data-description="This is the paragraph message for card 2" data-footer="TODAY PRICE : ">
+            <img src="https://www.asiafarming.com/wp-content/uploads/2022/11/High-Yield-Hybrid-PaddyRice-Varieties-in-India-1-1024x768.jpg" alt="Card 2">
+          </div>
+          <div class="card" data-heading="PADDY" data-subheading="Min price : " data-image="https://kisanvedika.bighaat.com/wp-content/uploads/2023/02/sreehari-devadas-WDI95CIPW00-unsplash.jpg" data-description="This is the paragraph message for card 3" data-footer="TODAY PRICE : ">
+            <img src="https://kisanvedika.bighaat.com/wp-content/uploads/2023/02/sreehari-devadas-WDI95CIPW00-unsplash.jpg" alt="Card 3">
+          </div>
+          <div class="card" data-heading="PADDY" data-subheading="Min price : " data-image="https://farm.ws/wp-content/uploads/2021/07/pexels-abhinav-raj-4057041.jpg" data-description="This is the paragraph message for card 1" data-footer="TODAY PRICE : ">
+            <img src="https://farm.ws/wp-content/uploads/2021/07/pexels-abhinav-raj-4057041.jpg" alt="Card 1">
+          </div>
+          <div class="card" data-heading="PADDY" data-subheading="Min Price : " data-image="https://s3.ap-southeast-1.amazonaws.com/images.deccanchronicle.com/dc-Cover-1hqmnp02e87gevn3s2hb9vash6-20210805235916.Medi.jpeg" data-description="This is the paragraph message for card 2" data-footer="TODAY PRICE : ">
+            <img src="https://s3.ap-southeast-1.amazonaws.com/images.deccanchronicle.com/dc-Cover-1hqmnp02e87gevn3s2hb9vash6-20210805235916.Medi.jpeg" alt="Card 2">
+          </div>
+          <div class="card" data-heading="PADDY" data-subheading="Min price" data-image="https://kisanvedika.bighaat.com/wp-content/uploads/2023/02/sreehari-devadas-WDI95CIPW00-unsplash.jpg" data-description="This is the paragraph message for card 3" data-footer="TODAY PRICE">
+            <img src="https://kisanvedika.bighaat.com/wp-content/uploads/2023/02/sreehari-devadas-WDI95CIPW00-unsplash.jpg" alt="Card 3">
+          </div>
+          <div class="card" data-heading="PADDY" data-subheading="Min Price : " data-image="https://farm.ws/wp-content/uploads/2021/07/pexels-abhinav-raj-4057041.jpg" data-description="This is the paragraph message for card 1" data-footer="TODAY PRICE : ">
+            <img src="https://farm.ws/wp-content/uploads/2021/07/pexels-abhinav-raj-4057041.jpg" alt="Card 1">
+          </div>
+          <div class="card" data-heading="Card 2 Heading" data-subheading="Card 2 Subheading" data-image="https://s3.ap-southeast-1.amazonaws.com/images.deccanchronicle.com/dc-Cover-1hqmnp02e87gevn3s2hb9vash6-20210805235916.Medi.jpeg" data-description="This is the paragraph message for card 2" data-footer="TODAY PRICE">
+            <img src="https://s3.ap-southeast-1.amazonaws.com/images.deccanchronicle.com/dc-Cover-1hqmnp02e87gevn3s2hb9vash6-20210805235916.Medi.jpeg" alt="Card 2">
+          </div>
+          <div class="card" data-heading="PADDY" data-subheading="Min Price : " data-image="https://kisanvedika.bighaat.com/wp-content/uploads/2023/02/sreehari-devadas-WDI95CIPW00-unsplash.jpg" data-description="This is the paragraph message for card 3" data-footer="TODAY PRICE : ">
+            <img src="https://kisanvedika.bighaat.com/wp-content/uploads/2023/02/sreehari-devadas-WDI95CIPW00-unsplash.jpg" alt="Card 3">
+          </div>
+          <div class="card" data-heading="PADDY" data-subheading="Min Price : " data-image="https://farm.ws/wp-content/uploads/2021/07/pexels-abhinav-raj-4057041.jpg" data-description="This is the paragraph message for card 1" data-footer="TODAY PRICE : ">
+            <img src="https://farm.ws/wp-content/uploads/2021/07/pexels-abhinav-raj-4057041.jpg" alt="Card 1">
+          </div>
+          <div class="card" data-heading="PADDY" data-subheading="Min price : " data-image="https://s3.ap-southeast-1.amazonaws.com/images.deccanchronicle.com/dc-Cover-1hqmnp02e87gevn3s2hb9vash6-20210805235916.Medi.jpeg" data-description="This is the paragraph message for card 2" data-footer="TODAY PRICE : ">
+            <img src="https://s3.ap-southeast-1.amazonaws.com/images.deccanchronicle.com/dc-Cover-1hqmnp02e87gevn3s2hb9vash6-20210805235916.Medi.jpeg" alt="Card 2">
+          </div>
+          <div class="card" data-heading="PADDY" data-subheading="Min Price : " data-image="https://kisanvedika.bighaat.com/wp-content/uploads/2023/02/sreehari-devadas-WDI95CIPW00-unsplash.jpg" data-description="This is the paragraph message for card 3" data-footer="TODAY PRICE : ">
+            <img src="https://kisanvedika.bighaat.com/wp-content/uploads/2023/02/sreehari-devadas-WDI95CIPW00-unsplash.jpg" alt="Card 3">
+          </div>
+        <!-- More card elements go here -->
+      </div>
+      
+      <div class="overlay"></div>
+      <div class="popup">
+        <div id="popup-image-container">
+          <img id="popup-image" src="" alt="Popup Image">
+        </div>
+        <h2 id="popup-heading"></h2>
+        <h3 id="popup-subheading"></h3>
+        <p id="popup-description"></p>
+        <h4 id="popup-footer"></h4>
+        <button id="close-popup">Close</button>
+      </div>
+      
+<footer>
+    <h2>podili vamsi krishna</h2>
+    <p>vamsikrishna2666@gmail.com</p>
+</footer>
+  
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const navLinks = document.getElementById('nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        // Get elements
+const cards = document.querySelectorAll('.card');
+const overlay = document.querySelector('.overlay');
+const popup = document.querySelector('.popup');
+const popupImage = document.getElementById('popup-image');
+const popupHeading = document.getElementById('popup-heading');
+const popupSubheading = document.getElementById('popup-subheading');
+const popupDescription = document.getElementById('popup-description');
+const popupFooter = document.getElementById('popup-footer');
+const closePopup = document.getElementById('close-popup');
+
+// Show popup with three headers and other content
+cards.forEach(card => {
+  card.addEventListener('click', () => {
+    const heading = card.getAttribute('data-heading');
+    const subheading = card.getAttribute('data-subheading');
+    const imageSrc = card.getAttribute('data-image');
+    const description = card.getAttribute('data-description');
+    const footer = card.getAttribute('data-footer');
+    
+    popupImage.src = imageSrc;
+    popupHeading.textContent = heading;
+    popupSubheading.textContent = subheading;
+    popupDescription.textContent = description;
+    popupFooter.textContent = footer;
+    
+    overlay.style.display = 'flex';
+    popup.style.display = 'block';
+  });
+});
+
+// Close the popup
+closePopup.addEventListener('click', () => {
+  overlay.style.display = 'none';
+  popup.style.display = 'none';
+});
+
+    </script>
+
+</body>
+</html>
